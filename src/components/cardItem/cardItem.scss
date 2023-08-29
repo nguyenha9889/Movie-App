@@ -1,0 +1,86 @@
+@use "../../scss/" as *;
+
+.card-item {
+    width: 125px;
+    flex-shrink: 0;
+    cursor: pointer;
+	border: none;
+    @include md {
+        width: calc(25% - 16px);
+    }
+    @include lg {
+        width: calc(20% - 16px);
+    }
+
+	.poster-card {
+		@include flex(center, space-between);
+		position: relative;
+		width: 100%;
+		aspect-ratio: 1/1.5;
+		background-size: cover;
+		background-position: center;
+		padding: 10px;
+		margin-bottom: 30px;
+
+		.lazy-load-image-background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 6px;
+			box-shadow: rgb(0 0 0 / 61%) 0px 5px 15px;
+			overflow: hidden;
+
+			.lazy-load-image-loaded {
+				filter: blur(0);
+				transition: filter 0.3s;
+			}
+			& > img {
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+				transition: opacity 0.3s;
+			}
+		}
+
+		.circle-rating {
+			position: absolute;
+			bottom: -16px;
+			left: 12px;
+			border-radius: 50%;
+			padding: 3px;
+			transform: translateY(5px);
+			width: 54px;
+			background: #fff;
+		}
+
+		.btn-navigate {
+			position: absolute;
+			top: 45%;
+			left: 40%;
+			z-index: 1;
+			visibility: hidden;
+		}
+        &:hover {
+            .btn-navigate {
+                visibility: visible;
+            }
+        }
+	}
+    
+
+	.content-card {
+		margin: 20px 3px;
+		.card-title {
+			font-weight: 500;
+            @include text-shorten(1);
+		}
+		.date {
+            margin-top: 10px;
+			opacity: 0.8;
+			font-size: 0.9rem;
+			font-weight: 600;
+		}
+	}
+}

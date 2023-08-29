@@ -1,0 +1,124 @@
+@use "../../../scss/" as *;
+
+section.detail-page-header {
+	width: 100%;
+	position: relative;
+	padding-top: 120px;
+	min-height: 680px;
+	.bg-detail {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.2;
+		overflow: hidden;
+		.lazy-load-image-background {
+			width: 100%;
+			height: 100%;
+		}
+		.lazy-load-image-loaded {
+			filter: blur(0);
+			transition: filter 0.3s;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+
+	.header-layer {
+		position: absolute;
+		width: 100%;
+		height: 250px;
+		bottom: 0;
+
+		background: linear-gradient(rgba(225, 231, 231, 0), rgb(1 59 59));
+	}
+
+	.content-wrapper {
+		.header-content {
+			position: relative;
+			@include flex(center, space-between);
+
+			.lazy-load-image-background {
+				width: 35%;
+				img {
+					border-radius: 10px;
+					box-shadow: rgba(0, 0, 0, 0.61) 0px 5px 20px 2px;
+				}
+			}
+			.content {
+				width: 60%;
+				font-weight: 600;
+				.title {
+					font-size: 2.2rem;
+					font-weight: 500;
+					text-shadow: black 1px 2px 2px;
+				}
+				.sub-title {
+					font-size: 1.2rem;
+					font-weight: 600;
+					margin: 5px 0 10px 0;
+					color: rgb(182, 180, 180);
+				}
+				.favorite {
+					margin: 26px 0;
+					font-size: 1.1rem;
+					@include flex(center, flex-start);
+					.btn-add-favorite {
+						width: 40px;
+						height: 40px;
+						outline: none;
+						border: 0px;
+						border-color: gainsboro;
+						background: transparent;
+						margin-right: 5px;
+						cursor: pointer;
+						transition: border 0.2s ease-in-out;
+						svg {
+							color: $yellow-color;
+							font-size: 2rem;
+                            padding: 2px;
+							outline: none;
+						}
+					}
+					&:hover {
+						.btn-add-favorite {
+							border: 2px solid gainsboro;
+							border-radius: 50%;
+						}
+					}
+				}
+				.summary {
+					margin-bottom: 20px;
+					.heading {
+						font-size: 1.3rem;
+					}
+					.desciption {
+						line-height: 1.6rem;
+						font-weight: 500;
+						margin: 10px 0;
+					}
+				}
+				.info-row {
+					@include flex(center, unset);
+					gap: 30px;
+					padding: 20px 0 10px 0;
+					border-bottom: 1px solid rgba(128, 128, 128, 0.562);
+					.info {
+						span:first-child {
+							font-weight: 600;
+							margin-right: 5px;
+						}
+						span:last-child {
+							color: rgb(182, 180, 180);
+						}
+					}
+				}
+			}
+		}
+	}
+}

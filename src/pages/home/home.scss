@@ -1,0 +1,10 @@
+@use "../../scss/" as *;
+
+section.medias-container {
+	position: relative;
+	margin-bottom: 80px;
+    margin-top: 20px;
+	& .content-wrapper:first-child {
+		@include flex(center, flex-end);
+	}
+}

@@ -1,0 +1,40 @@
+@use "../../scss/" as *;
+
+
+.carousel-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: $light-color;
+    margin-bottom: 20px;
+    @include sm {
+        font-size: 1.2rem;
+    }
+}
+.carousel-arrow {
+	position: absolute;
+	top: 50%;
+	font-size: 2rem;
+    padding: 3px;
+	fill: #fff;
+    background: $blue-color;
+	filter: drop-shadow(2px 4px 6px grey);
+	border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+	&.left {
+		left: 3%;
+	}
+	&.right {
+		right: 3%;
+	}
+}
+.carousel-items {
+	@include flex(center, space-between);
+	gap: 10px;
+    overflow-y: hidden;
+	@include md {
+		gap: 20px;
+		overflow: hidden;
+	}
+}

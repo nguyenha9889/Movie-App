@@ -1,0 +1,196 @@
+@use "../../scss/" as *;
+
+header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include flex(center, space-between);
+	background-color: transparent;
+	z-index: 10;
+	.btn-toggle {
+		background-color: transparent;
+		color: inherit;
+		border: none;
+		border-radius: 3px;
+		width: 32px;
+		height: 32px;
+		padding: 3px;
+		font-size: 26px;
+		cursor: pointer;
+		transition: background-color 150ms cubic-bezier(0.445, 0.05, 0.55, 0.95)
+			0ms;
+		@include sm {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+            z-index: 1;
+			&:hover {
+				background-color: $blue-color;
+			}
+		}
+		@include md {
+			display: none;
+		}
+		.svg {
+			display: inline-block;
+			fill: currentcolor;
+			flex-shrink: 0;
+			transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+		}
+	}
+
+	.nav-menu {
+		width: 100%;
+		@include sm {
+			display: none;
+			box-shadow: $box-shadow;
+			background-color: $body-bg;
+			&.extend {
+				display: block;
+				height: 100vh;
+				max-width: 200px;
+				padding: 20px;
+			}
+		}
+		.content-wrapper {
+			position: relative;
+			@include flex(center, unset);
+			@include md {
+				margin: 10px 20px !important;
+			}
+			@include sm {
+				flex-direction: column;
+				height: 100%;
+			}
+			.nav-logo {
+				margin-right: 20px;
+				@include sm {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+				}
+				a {
+					display: flex;
+					font-weight: 600;
+					color: $yellow-color;
+					text-shadow: 2px 2px 8px black;
+					@include sm {
+						min-width: 150px;
+						position: absolute;
+						top: 50px;
+						left: 0;
+						.brand {
+							font-size: 1.8rem;
+						}
+						img {
+							height: 30px;
+						}
+					}
+					@include md {
+						.brand {
+							font-size: 2.2rem;
+						}
+						img {
+							height: 54px;
+						}
+					}
+				}
+			}
+		}
+		/* --------MENU-------- */
+		.menu-list {
+			position: relative;
+
+			@include sm {
+				display: none;
+				transition: all 0.5s;
+				&.extend {
+					display: flex;
+					flex-direction: column;
+					width: 80%;
+					position: absolute;
+					top: 100px;
+					left: 0;
+					border-radius: 3px;
+					.menu-item {
+						width: 100%;
+						font-weight: 500;
+						padding: 20px 0 8px 12px;
+					}
+					.account-container {
+						width: 100%;
+						text-align: center;
+					}
+				}
+			}
+			@include md {
+				@include flex(center, unset);
+			}
+			.menu-item {
+				position: relative;
+				@include md {
+					@include flex(center, space-evenly);
+				}
+				cursor: pointer;
+				width: 100px;
+				padding-bottom: 2px;
+				font-weight: 600;
+				font-size: 1.1rem;
+				color: #fff;
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: -5px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 0;
+					transition: width 0.5s ease;
+					height: 2px;
+					background-color: $yellow-color;
+				}
+
+				&:hover::after,
+				&.active::after {
+					width: 80%;
+				}
+			}
+		}
+	}
+
+	/* ------ACCOUNT LOGIN ------- */
+	.account-container {
+		@include sm {
+			position: absolute;
+			top: 20px;
+			right: 0;
+		}
+		.btn-login {
+			border: none;
+			font-weight: 600;
+			font-size: 1rem;
+			letter-spacing: 0.1rem;
+			text-transform: uppercase;
+			border-radius: 4px;
+			transition: all 0.3s ease 0s;
+			background-color: transparent;
+			color: #fff;
+			padding: 10px 15px;
+			cursor: pointer;
+			&:hover {
+				background-color: $yellow-color;
+				box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+				transform: translateY(-3px);
+			}
+			&:active {
+				transform: translateY(-1px);
+			}
+		}
+	}
+
+	&.show {
+		background: $body-bg;
+		box-shadow: $box-shadow;
+	}
+}

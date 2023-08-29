@@ -1,0 +1,17 @@
+@use '../../scss/' as *;
+
+.btn-go-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    color: $body-bg;
+    background-color: $yellow-color;
+    cursor: pointer;
+    z-index: 10;
+}

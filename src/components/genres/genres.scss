@@ -1,0 +1,15 @@
+@use '../../scss/' as *;
+
+
+.genres-list {
+    display: flex;
+    gap: 8px;
+    .genre {
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 3px 6px;
+        color: $body-bg;
+        background-color: $yellow-color;
+        border-radius: 4px;
+    }
+}

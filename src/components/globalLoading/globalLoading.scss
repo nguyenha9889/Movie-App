@@ -1,0 +1,60 @@
+@use "../../scss/" as *;
+
+.global-loading {
+	display: inline-block;
+	position: relative;
+    background-color: $body-bg;
+	width: 50%;
+	height: 100%;
+
+    div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #fff;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    div:nth-child(1) {
+        left: 8px;
+        animation: global-loading1 0.6s infinite;
+    }
+    div:nth-child(2) {
+        left: 8px;
+        animation: global-loading2 0.6s infinite;
+    }
+    div:nth-child(3) {
+        left: 32px;
+        animation: global-loading2 0.6s infinite;
+    }
+    div:nth-child(4) {
+        left: 56px;
+        animation: global-loading3 0.6s infinite;
+    }
+
+    @keyframes global-loading1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes global-loading3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+    @keyframes global-loading2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(24px, 0);
+        }
+    }
+}

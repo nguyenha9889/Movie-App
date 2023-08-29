@@ -1,0 +1,42 @@
+@use "../../scss/" as *;
+
+footer {
+	padding: 20px 0;
+	background-image: linear-gradient( rgb(17 97 97 / 49%), rgba(1, 68, 68, 0.98));
+	.content-wrapper {
+		width: 50% !important;
+		margin: 0 auto;
+		.about-us {
+			@include flex(center, space-evenly);
+			margin: 20px 0;
+			font-weight: 600;
+		}
+		.follow-us {
+            width: 30%;
+            margin: 0 auto;
+			@include flex(center, space-evenly);
+			.follow-icon {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background-color: $blue-color;
+				padding: 10px;
+				svg {
+					font-size: 20px;
+					line-height: 20px;
+				}
+			}
+		}
+        .author {
+            @include flex(center, center);
+            margin-top: 20px;
+            gap: 10px;
+            img {
+                height: 50px;
+            }
+            span {
+                font-weight: 500;
+            }
+        }
+	}
+}

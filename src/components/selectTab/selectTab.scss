@@ -1,0 +1,48 @@
+@use "../../scss/" as *;
+
+.tab-list {
+    width: 160px;
+	background-color: gainsboro;
+	display: flex;
+	border: none;
+	border-radius: 30px;
+	padding: 1px;
+    box-shadow: 1px 3px 10px -5px rgba(0, 0, 0, 0.616);
+	button.tab-item {
+		display: block;
+        width: 80px;
+        padding: 10px 20px;
+		color: $body-bg;
+		text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+		font-size: 0.9rem;
+		background: transparent;
+		background-size: 200% auto;
+		border-radius: 30px;
+		border: none;
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-select: none;
+		&.active {
+			color: white;
+			border: none;
+			box-shadow: 0px 0px 14px -7px #f09819;
+			background-image: linear-gradient(
+				45deg,
+				$yellow-color 0%,
+				$blue-color 51%,
+				$yellow-color 100%
+			);
+			transition: 0.5s;
+			transform: scale(0.95);
+			touch-action: manipulation;
+			&:hover {
+				background-position: right center;
+				/* change the direction of the change here */
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+}
